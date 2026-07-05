@@ -19,6 +19,7 @@ import (
 // если запуск из докер контейнера: .env
 const configPath = ".env"
 
+// ff
 func main() {
 	ctx := context.Background()
 
