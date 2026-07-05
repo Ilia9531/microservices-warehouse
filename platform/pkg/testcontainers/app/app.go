@@ -117,7 +117,7 @@ func (a *Container) Terminate(ctx context.Context) error {
 }
 
 func streamContainerLogs(ctx context.Context, container testcontainers.Container, out io.Writer) {
-	time.Sleep(3 * time.Second)
+
 	logs, err := container.Logs(ctx)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "⚠️ failed to get container logs: %v\n", err)

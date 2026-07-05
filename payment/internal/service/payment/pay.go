@@ -2,7 +2,6 @@ package payment
 
 import (
 	"context"
-	"fmt"
 	"log/slog"
 
 	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
@@ -27,6 +26,7 @@ func (s *Service) PayOrder(_ context.Context, orderUUID, userUUID string, paymen
 		"payment_method", paymentMethod,
 		"transaction_uuid", transUuid,
 	)
-	fmt.Printf("Оплата прошла успешно, transaction_uuid: %s", transUuid)
+
+	slog.Info("Оплата прошла успешно, transaction_uuid: %s", transUuid)
 	return transUuid, nil
 }

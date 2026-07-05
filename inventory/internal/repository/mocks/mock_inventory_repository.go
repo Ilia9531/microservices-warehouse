@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	model "Jopa/inventory/internal/model"
+	model "github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 	context "context"
 
 	mock "github.com/stretchr/testify/mock"

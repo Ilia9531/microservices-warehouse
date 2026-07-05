@@ -1,12 +1,13 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
-	repoModel "github.com/Ilia9531/microservices-warehouse/order/internal/repository/model"
 	"context"
 	"errors"
 	"fmt"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
+	repoModel "github.com/Ilia9531/microservices-warehouse/order/internal/repository/model"
 
 	"github.com/jackc/pgx/v5"
 )
@@ -33,7 +34,7 @@ func (r *Repository) Get(ctx context.Context, uuid string) (*model.Order, error)
 	)
 	if err != nil {
 		if errors.Is(err, pgx.ErrNoRows) {
-			return nil, fmt.Errorf("order not found: %w", uuid)
+			return nil, fmt.Errorf("order not found: %s", uuid)
 		}
 		return nil, model.ErrNotFound
 	}

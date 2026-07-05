@@ -1,13 +1,15 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
 	"context"
 	"errors"
 	"fmt"
 
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"github.com/jackc/pgx/v5/pgconn"
+	"go.uber.org/zap"
 )
 
 func (r *Repository) Create(ctx context.Context, orderM *model.Order) error {
@@ -40,6 +42,7 @@ func (r *Repository) Create(ctx context.Context, orderM *model.Order) error {
 			}
 		}
 	}
-	fmt.Printf("заказ создан: %d\n", orderM.OrderUUID)
+	logger.Info(ctx, "заказ создан:", zap.String("uuid", orderM.OrderUUID))
+
 	return nil
 }
