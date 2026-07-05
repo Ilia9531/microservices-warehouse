@@ -15,6 +15,7 @@ import (
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/mongo"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/network"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/path"
+	"github.com/docker/go-connections/nat"
 )
 
 // setupTestEnvironment подготавливает тестовое окружение: сеть, контейнеры и возвращает структуру с ресурсами
@@ -72,9 +73,8 @@ func setupTestEnvironment(ctx context.Context) *TestEnvironment {
 
 	// Создаём настраиваемую стратегию ожидания с увеличенным таймаутом
 	// Ждём, пока порт 50051 станет доступен для gRPC-соединений
-	// waitStrategy := wait.ForListeningPort(grpcPort + "/tcp").
-	//	WithStartupTimeout(startupTimeoutValue)
-	waitStrategy := wait.ForLog("🚀 gRPC InventoryService server listening on").WithStartupTimeout(startupTimeoutValue)
+	waitStrategy := wait.ForListeningPort(nat.Port(grpcPort + "/tcp")).WithStartupTimeout(startupTimeoutValue)
+	//waitStrategy := wait.ForLog("🚀 gRPC InventoryService server listening on").WithStartupTimeout(startupTimeoutValue)
 
 	log.Info(ctx, "📦 Собираем и запускаем Inventory контейнер...",
 		zap.String("dockerfile", inventoryDockerfile),
