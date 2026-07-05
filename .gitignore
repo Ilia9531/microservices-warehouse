@@ -1,0 +1,21 @@
+cat > .gitignore << 'EOF'
+# Бинарники и кэш
+bin/
+*.exe
+*.out
+coverage/
+go.work.sum
+
+Taskfile_*
+Команды_для_этого_говна.txt
+
+# Переменные окружения (содержат пароли!)
+.env
+*.env
+!*.env.template
+
+# IDE
+.idea/
+.vscode/
+*.swp
+EOF

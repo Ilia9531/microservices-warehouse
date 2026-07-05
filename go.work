@@ -1,0 +1,11 @@
+go 1.25.7
+
+use (
+	./inventory
+	./order
+	./payment
+	./shared
+	./platform
+	./assembly
+	./notification
+)

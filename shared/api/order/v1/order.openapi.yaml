@@ -1,0 +1,214 @@
+openapi: 3.0.3
+
+info:
+  title: OrderService API
+  version: 1.0.0
+  description: API для работы с заказами
+
+servers:
+  - url: http://localhost:8080
+
+x-ogen:
+  target: ../../../../shared/pkg/openapi/order/v1
+  package: orderv1
+  clean: true
+
+tags:
+  - name: Order
+    description: Операции для работы с заказами
+
+paths:
+  /api/v1/orders:
+    post:
+      summary: Создание заказа
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+      responses:
+        '200':
+          description: Заказ успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOrderResponse'
+        '400':
+          description: Ошибка валидации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not found
+
+  /api/v1/orders/{order_uuid}:
+    get:
+      summary: Получение заказа по uuid
+      parameters:
+      - name: order_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Заказ найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrderResponse'
+        '400':
+          description: Ошибка валидации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not found
+
+  /api/v1/orders/{order_uuid}/pay:
+    post:
+      summary: Оплата заказа
+      parameters:
+        - name: order_uuid
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayOrderRequest'
+      responses:
+        '200':
+          description: Заказ оплачен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayOrderResponse'
+        '400':
+          description: Ошибка валидации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not found
+
+  /api/v1/orders/{order_uuid}/cancel:
+    post:
+      summary: Отмена заказа
+      parameters:
+        - name: order_uuid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: заказ успешно отменен
+        '404':
+          description: заказ не найден
+        '409':
+          description: заказ уже оплачен и не может быть отменен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+components:
+  schemas:
+    CreateOrderRequest:
+      type: object
+      required:
+        - user_uuid
+        - part_uuids
+      properties:
+        user_uuid:
+          type: string
+        part_uuids:
+          type: array
+          items:
+            type: string
+
+    CreateOrderResponse:
+      type: object
+      properties:
+        order_uuid:
+          type: string
+          format: uuid
+        total_price:
+          type: number
+          format: double
+
+    GetOrderResponse:
+      type: object
+      required:
+        - order_uuid
+        - user_uuid
+        - part_uuids
+        - total_price
+        - status
+      properties:
+        order_uuid:
+          type: string
+        user_uuid:
+          type: string
+        part_uuids:
+          type: array
+          items:
+            type: string
+        total_price:
+          type: number
+          format: double
+        transaction_uuid:
+          type: string
+          nullable: true
+        payment_method:
+          type: string
+          enum:
+            - CARD
+            - SBP
+            - CREDIT_CARD
+            - INVESTOR_MONEY
+          nullable: true
+        status:
+          type: string
+          enum:
+            - PENDING_PAYMENT
+            - PAID
+            - CANCELLED
+            - ASSEMBLED
+
+    PayOrderRequest:
+      type: object
+      required:
+        - payment_method
+      properties:
+        payment_method:
+          type: string
+          enum:
+            - CARD
+            - SBP
+            - CREDIT_CARD
+            - INVESTOR_MONEY
+
+    PayOrderResponse:
+      type: object
+      properties:
+        transaction_uuid:
+          type: string
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string

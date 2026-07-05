@@ -1,0 +1,32 @@
+with-expecter: true
+dir: "{{.InterfaceDir}}/mocks"
+filename: "mock_{{.InterfaceNameSnake}}.go"
+outpkg: "mocks"
+mockname: "{{.InterfaceName}}"
+resolve-type-alias: False
+issue-845-fix: True
+
+packages:
+  Jopa/order/internal/service:
+    config:
+      include-regex: ".*Service"
+
+  Jopa/order/internal/repository:
+    config:
+      include-regex: ".*Repository"
+
+  Jopa/order/internal/client/grpc:
+    config:
+      include-regex: ".*Client"
+
+  Jopa/inventory/internal/service:
+    config:
+      include-regex: ".*Service"
+
+  Jopa/inventory/internal/repository:
+    config:
+      include-regex: ".*Repository"
+
+  Jopa/payment/internal/service:
+    config:
+      include-regex: ".*Service"

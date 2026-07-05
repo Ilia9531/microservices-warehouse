@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package events.v1;
+
+option go_package = "Jopa/shared/pkg/proto/events/v1;eventsv1";
+
+// Событие об оплате заказа (OrderService → AssemblyService, NotificationService)
+message OrderPaidEvent {
+  string event_uuid = 1;        // Уникальный ID события (идемпотентность)
+  string order_uuid = 2;        // ID оплаченного заказа
+  string user_uuid = 3;         // ID пользователя
+  string payment_method = 4;    // Способ оплаты (CARD, SBP и т.д.)
+  string transaction_uuid = 5;  // ID транзакции из PaymentService
+}
+
+// Событие об успешной сборке корабля (AssemblyService → OrderService, NotificationService)
+message ShipAssembledEvent {
+  string event_uuid = 1;        // Уникальный ID события (идемпотентность)
+  string order_uuid = 2;        // ID собранного заказа
+  string user_uuid = 3;         // ID пользователя
+  int64 build_time_sec = 4;     // Время сборки в секундах
+}
