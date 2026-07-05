@@ -17,7 +17,7 @@ import (
 
 // если запуск локально: deploy/compose/inventory/
 // если запуск из докер контейнера: .env
-const configPath = "deploy/compose/inventory/.env"
+const configPath = ".env"
 
 func main() {
 	ctx := context.Background()
