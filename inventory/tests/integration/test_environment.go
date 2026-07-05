@@ -3,21 +3,21 @@
 package integration
 
 import (
-	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/app"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/mongo"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/network"
-	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 	"context"
 	"fmt"
 	"os"
 	"time"
 
 	"github.com/brianvoe/gofakeit/v7"
-
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"google.golang.org/protobuf/types/known/timestamppb"
+
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/app"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/mongo"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/network"
+	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
 // TestEnvironment хранит ссылки на контейнеры тестового окружения
@@ -66,15 +66,15 @@ func (env *TestEnvironment) InsertTestPart(ctx context.Context) (string, error) 
 	databaseName := getEnvWithFallback(mongoDatabaseKey, "inventory")
 	collection := env.Mongo.Client().Database(databaseName).Collection(partsCollectionName)
 
-	//лог
+	// лог
 
 	res, err := collection.InsertOne(ctx, partDoc)
 	if err != nil {
 		return "", fmt.Errorf("failed to insert test part: %w", err)
 	}
-	//лог2
+	// лог2
 	fmt.Printf("✅ InsertTestPart: inserted ID=%v\n", res.InsertedID)
-	//лог3
+	// лог3
 
 	return partUUID, nil
 }
@@ -113,7 +113,7 @@ func (env *TestEnvironment) InsertTestPartWithData(ctx context.Context, part *in
 
 	databaseName := getEnvWithFallback(mongoDatabaseKey, "inventory")
 	collection := env.Mongo.Client().Database(databaseName).Collection(partsCollectionName)
-	//лог
+	// лог
 
 	_, err := collection.InsertOne(ctx, partDoc)
 	if err != nil {

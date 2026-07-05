@@ -1,9 +1,9 @@
 package order_test
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-
 	"github.com/stretchr/testify/mock"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 // TestCancelOrder_Success тест на успешную отмену.

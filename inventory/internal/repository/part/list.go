@@ -1,12 +1,13 @@
 package part
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
-	repoConverter "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/converter"
-	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 	"context"
 
 	"go.mongodb.org/mongo-driver/bson"
+
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	repoConverter "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/converter"
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 )
 
 func (r *repository) List(ctx context.Context, filter1 *model.PartsFilter) ([]*model.Part, error) {
@@ -54,10 +55,12 @@ func (r *repository) List(ctx context.Context, filter1 *model.PartsFilter) ([]*m
 	// Выполняем запрос
 	cursor, err := r.collection.Find(ctx, query)
 	if err != nil {
-		//fmt.Printf("Я list из репо, получена ошибка: %v, вот ее тип: %T\n", err, err)
+		// fmt.Printf("Я list из репо, получена ошибка: %v, вот ее тип: %T\n", err, err)
 		return nil, err
 	}
-	defer cursor.Close(ctx)
+	defer func() {
+		_ = cursor.Close(ctx)
+	}()
 
 	var repoModels []repoModel.Part
 	if err = cursor.All(ctx, &repoModels); err != nil {
@@ -69,7 +72,7 @@ func (r *repository) List(ctx context.Context, filter1 *model.PartsFilter) ([]*m
 		x := repoConverter.PartToDomain(&item)
 		listRes = append(listRes, x)
 	}
-	//fmt.Printf("Я list из репо, запрос list отправлен, получен listRes: %v\n", listRes)
+	// fmt.Printf("Я list из репо, запрос list отправлен, получен listRes: %v\n", listRes)
 
 	return listRes, nil
 }

@@ -1,14 +1,15 @@
 package main
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/app"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
 	"context"
 	"log"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/app"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
 )
 
 const configPath = "deploy/compose/order/.env"

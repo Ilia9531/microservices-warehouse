@@ -1,9 +1,8 @@
 package config
 
-//Logger LoggerConfig
-//GRPC   InventoryGRPCConfig
-//Mongo  MongoConfig
-
+// Logger LoggerConfig
+// GRPC   InventoryGRPCConfig
+// Mongo  MongoConfig
 type LoggerConfig interface {
 	Level() string
 	AsJSON() bool

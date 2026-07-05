@@ -3,9 +3,9 @@
 package app
 
 import (
-	api "github.com/Ilia9531/microservices-warehouse/payment/internal/api/payment/v1"
 	"context"
 
+	api "github.com/Ilia9531/microservices-warehouse/payment/internal/api/payment/v1"
 	"github.com/Ilia9531/microservices-warehouse/payment/internal/service"
 	paymentSvc "github.com/Ilia9531/microservices-warehouse/payment/internal/service/payment"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"

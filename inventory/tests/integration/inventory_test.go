@@ -21,7 +21,6 @@ var _ = Describe("InventoryService", func() {
 	)
 
 	BeforeEach(func() {
-
 		ctx, cancel = context.WithCancel(suiteCtx)
 
 		// Создаём gRPC-клиент к запущенному в тесте Inventory-сервису
@@ -32,7 +31,6 @@ var _ = Describe("InventoryService", func() {
 		Expect(err).ToNot(HaveOccurred(), "ожидали успешное подключение к gRPC приложению")
 
 		invClient = invV1.NewInventoryServiceClient(conn)
-
 	})
 
 	AfterEach(func() {
@@ -41,7 +39,6 @@ var _ = Describe("InventoryService", func() {
 		Expect(err).ToNot(HaveOccurred(), "ожидали успешную очистку коллекции parts")
 
 		cancel()
-
 	})
 
 	Describe("GetPart", func() {

@@ -1,11 +1,12 @@
 package decoder
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
-	eventsv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1"
 	"fmt"
 
 	"google.golang.org/protobuf/proto"
+
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
+	eventsv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1"
 )
 
 type decoder struct{}

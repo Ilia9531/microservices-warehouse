@@ -2,6 +2,7 @@ package order_consumer
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"go.uber.org/zap"
@@ -9,7 +10,6 @@ import (
 	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	kafka "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
-	"errors"
 )
 
 // ShipAssembledHandler обрабатывает входящее событие ShipAssembled из Kafka.

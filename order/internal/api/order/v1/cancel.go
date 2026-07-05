@@ -1,10 +1,11 @@
 package v1
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 	"context"
 	"errors"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 )
 
 func (a *Api) APIV1OrdersOrderUUIDCancelPost(ctx context.Context, params orderv1.APIV1OrdersOrderUUIDCancelPostParams) (orderv1.APIV1OrdersOrderUUIDCancelPostRes, error) {

@@ -4,16 +4,15 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/service"
-
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 
 	invV1API "github.com/Ilia9531/microservices-warehouse/inventory/internal/api/inventory/v1"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
 	"github.com/Ilia9531/microservices-warehouse/inventory/internal/repository"
 	invRep "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/part"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/service"
 	PartServ "github.com/Ilia9531/microservices-warehouse/inventory/internal/service/part"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
 	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
@@ -58,7 +57,6 @@ func (d *diContainer) PartService(ctx context.Context) service.InventoryService 
 func (d *diContainer) MongoDBHandle(ctx context.Context) *mongo.Database {
 	if d.mongoDBHandle == nil {
 		d.mongoDBHandle = d.MongoDBClient(ctx).Database(config.AppConfig().Mongo.DatabaseName())
-
 	}
 	return d.mongoDBHandle
 }
@@ -66,7 +64,6 @@ func (d *diContainer) MongoDBHandle(ctx context.Context) *mongo.Database {
 func (d *diContainer) MongoDBClient(ctx context.Context) *mongo.Client {
 	if d.mongoDBClient == nil {
 		client, err := mongo.Connect(ctx, options.Client().ApplyURI(config.AppConfig().Mongo.URI()))
-
 		if err != nil {
 			panic(fmt.Sprintf("failed to connect to MongoDB: %s\n", err.Error()))
 		}

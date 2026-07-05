@@ -5,13 +5,13 @@ import (
 	inventoryv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
-func ToDomainPart(protoPart *inventoryv1.Part) *model.Part{
+func ToDomainPart(protoPart *inventoryv1.Part) *model.Part {
 	if protoPart == nil {
 		return nil
 	}
 	return &model.Part{
-		UUID: protoPart.Uuid,
-		Name: protoPart.Name,
+		UUID:  protoPart.Uuid,
+		Name:  protoPart.Name,
 		Price: protoPart.Price,
 	}
 }

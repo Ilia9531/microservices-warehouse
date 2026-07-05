@@ -1,8 +1,9 @@
 package grpc
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	"context"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 type InventoryClient interface {
@@ -10,5 +11,5 @@ type InventoryClient interface {
 }
 
 type PaymentClient interface {
-	PayOrderCl(ctx context.Context, orderUUID, userUUID string, paymentMethod string) (string, error)
+	PayOrderCl(ctx context.Context, orderUUID, userUUID, paymentMethod string) (string, error)
 }

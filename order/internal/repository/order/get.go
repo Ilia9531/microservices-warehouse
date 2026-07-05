@@ -5,11 +5,11 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/jackc/pgx/v5"
+
 	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
 	repoModel "github.com/Ilia9531/microservices-warehouse/order/internal/repository/model"
-
-	"github.com/jackc/pgx/v5"
 )
 
 func (r *Repository) Get(ctx context.Context, uuid string) (*model.Order, error) {

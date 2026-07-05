@@ -1,7 +1,6 @@
 package part
 
 import (
-	def "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository"
 	"context"
 	"log"
 	"time"
@@ -9,6 +8,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+
+	def "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository"
 )
 
 var _ def.InventoryRepository = (*repository)(nil)

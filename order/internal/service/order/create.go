@@ -1,12 +1,13 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	"context"
 	"fmt"
 	"time"
 
 	"github.com/google/uuid"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 func (s *Service) CreateOrder(ctx context.Context, userUUID string, partUUIDs []string) (*model.Order, error) {
@@ -18,7 +19,6 @@ func (s *Service) CreateOrder(ctx context.Context, userUUID string, partUUIDs []
 	}
 
 	parts, err := s.inventoryClient.ListPartsByUUIDs(ctx, partUUIDs)
-
 	if err != nil {
 		return nil, fmt.Errorf("failed to list parts: %w", err)
 	}

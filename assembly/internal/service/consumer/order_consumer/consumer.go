@@ -1,12 +1,12 @@
 package order_consumer
 
 import (
-	serviceKafka "github.com/Ilia9531/microservices-warehouse/assembly/internal/service"
 	"context"
 
 	"go.uber.org/zap"
 
 	kafakDec "github.com/Ilia9531/microservices-warehouse/assembly/internal/converter/kafka"
+	serviceKafka "github.com/Ilia9531/microservices-warehouse/assembly/internal/service"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
@@ -20,7 +20,8 @@ type service struct {
 
 // NewService создаёт новый экземпляр сервиса консьюмера.
 func NewService(consumer kafka.Consumer, decoder kafakDec.OrderPaidDecoder,
-	producer serviceKafka.OrderProducerService) *service {
+	producer serviceKafka.OrderProducerService,
+) *service {
 	return &service{
 		consumer:         consumer,
 		orderPaidDecoder: decoder,

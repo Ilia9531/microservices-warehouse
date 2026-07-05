@@ -2,7 +2,7 @@ package part_test
 
 import (
 	"github.com/stretchr/testify/assert"
-	
+
 	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 )
 

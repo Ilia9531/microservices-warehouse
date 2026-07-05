@@ -30,9 +30,9 @@ func NewMongoConfig() (*mongoConfig, error) {
 }
 
 func (cfg *mongoConfig) URI() string {
-	//fmt.Printf("🔍 Mongo config: user=%s host=%s port=%s db=%s\n",
+	// fmt.Printf("🔍 Mongo config: user=%s host=%s port=%s db=%s\n",
 	//	cfg.raw.User, cfg.raw.Host, cfg.raw.Port, cfg.raw.Database)
-	//mongodb://inventory-service-user:inventory-service-password@mongo:27017/inventory-service?authSource=admin
+	// mongodb://inventory-service-user:inventory-service-password@mongo:27017/inventory-service?authSource=admin
 	return fmt.Sprintf(
 		"mongodb://%s:%s@%s:%s/%s?authSource=%s",
 		cfg.raw.User,

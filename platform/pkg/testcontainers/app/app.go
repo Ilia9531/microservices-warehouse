@@ -8,16 +8,14 @@ import (
 	"os"
 	"time"
 
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
-
-	"github.com/docker/go-connections/nat"
-
 	"github.com/docker/docker/api/types/container"
+	"github.com/docker/go-connections/nat"
 	"github.com/pkg/errors"
-
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
 	"go.uber.org/zap"
+
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 const (
@@ -117,7 +115,6 @@ func (a *Container) Terminate(ctx context.Context) error {
 }
 
 func streamContainerLogs(ctx context.Context, container testcontainers.Container, out io.Writer) {
-
 	logs, err := container.Logs(ctx)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "⚠️ failed to get container logs: %v\n", err)

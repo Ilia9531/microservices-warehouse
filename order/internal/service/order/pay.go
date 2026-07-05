@@ -1,16 +1,17 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"context"
 	"fmt"
 
 	Guuid "github.com/google/uuid"
 	"go.uber.org/zap"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
-func (s *Service) PayOrder(ctx context.Context, uuid string, paymentMethod string) (*model.Order, error) {
+func (s *Service) PayOrder(ctx context.Context, uuid, paymentMethod string) (*model.Order, error) {
 	if uuid == "" {
 		return nil, fmt.Errorf("uuid is required: %w", model.ErrValidation)
 	}

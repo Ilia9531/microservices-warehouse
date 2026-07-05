@@ -1,10 +1,11 @@
 package inventory
 
 import (
+	"context"
+
 	"github.com/Ilia9531/microservices-warehouse/order/internal/client/converter"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	inventoryv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
-	"context"
 )
 
 func (c *grpcClient) ListPartsByUUIDs(ctx context.Context, uuids []string) ([]*model.Part, error) {

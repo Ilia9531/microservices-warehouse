@@ -1,11 +1,12 @@
 package payment_test
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/payment/internal/service/payment"
 	"context"
 	"testing"
 
 	"github.com/stretchr/testify/suite"
+
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/service/payment"
 )
 
 type PaymentServiceTestSuite struct {

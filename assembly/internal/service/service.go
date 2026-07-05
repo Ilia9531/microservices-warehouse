@@ -1,8 +1,9 @@
 package service
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
 	"context"
+
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
 )
 
 type ConsumerService interface {

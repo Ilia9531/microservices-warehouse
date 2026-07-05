@@ -1,8 +1,9 @@
 package repository
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 	"context"
+
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 )
 
 type InventoryRepository interface {

@@ -1,8 +1,9 @@
 package app
 
 import (
-	"github.com/testcontainers/testcontainers-go/wait"
 	"io"
+
+	"github.com/testcontainers/testcontainers-go/wait"
 )
 
 type Option func(*Config)

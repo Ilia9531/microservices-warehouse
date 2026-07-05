@@ -2,5 +2,7 @@ package model
 
 import "errors"
 
-var ErrPartNotFound = errors.New("part not found")
-var ErrValidation = errors.New("error validation")
+var (
+	ErrPartNotFound = errors.New("part not found")
+	ErrValidation   = errors.New("error validation")
+)

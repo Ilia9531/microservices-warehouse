@@ -1,11 +1,10 @@
 package inventory
 
 import (
-	inventoryv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
+	"google.golang.org/grpc"
 
 	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
-
-	"google.golang.org/grpc"
+	inventoryv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
 // grpcClient implements InventoryClient.

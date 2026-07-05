@@ -1,12 +1,13 @@
 package converter
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
-	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 	"fmt"
 
 	"github.com/google/uuid"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
+	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 )
 
 var openAPIToGRPCMethod = map[orderv1.PayOrderRequestPaymentMethod]paymentv1.PaymentMethod{

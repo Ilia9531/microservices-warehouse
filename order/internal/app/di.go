@@ -1,36 +1,35 @@
 package app
 
 import (
-	api "github.com/Ilia9531/microservices-warehouse/order/internal/api/order/v1"
-	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
-	invCl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc/inventory/v1"
-	payCl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc/payment/v1"
-	kafkaConverter "github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka/decoder"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/migrator"
-	repo "github.com/Ilia9531/microservices-warehouse/order/internal/repository/order"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"context"
 	"fmt"
-
-	orderConsumer "github.com/Ilia9531/microservices-warehouse/order/internal/service/consumer/order_consumer"
-	kafkaMiddleware "github.com/Ilia9531/microservices-warehouse/platform/pkg/middleware/kafka"
-
-	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/repository"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/service"
-	orderScv "github.com/Ilia9531/microservices-warehouse/order/internal/service/order"
-	orderProducer "github.com/Ilia9531/microservices-warehouse/order/internal/service/producer/order_producer"
-	wrappedKafka "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
-	wrappedKafkaConsumer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
-	wrappedKafkaProducer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/producer"
 
 	"github.com/IBM/sarama"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/stdlib"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+
+	api "github.com/Ilia9531/microservices-warehouse/order/internal/api/order/v1"
+	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
+	invCl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc/inventory/v1"
+	payCl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc/payment/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
+	kafkaConverter "github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka/decoder"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/migrator"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/repository"
+	repo "github.com/Ilia9531/microservices-warehouse/order/internal/repository/order"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/service"
+	orderConsumer "github.com/Ilia9531/microservices-warehouse/order/internal/service/consumer/order_consumer"
+	orderScv "github.com/Ilia9531/microservices-warehouse/order/internal/service/order"
+	orderProducer "github.com/Ilia9531/microservices-warehouse/order/internal/service/producer/order_producer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	wrappedKafka "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
+	wrappedKafkaConsumer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
+	wrappedKafkaProducer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/producer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	kafkaMiddleware "github.com/Ilia9531/microservices-warehouse/platform/pkg/middleware/kafka"
 )
 
 type diContainer struct {
@@ -81,7 +80,9 @@ func (d *diContainer) RunMigrations(ctx context.Context) {
 	cfg := config.AppConfig().Postgres
 
 	dbForMigrations := stdlib.OpenDB(*d.PostgresConn(ctx).Config().Copy())
-	defer dbForMigrations.Close()
+	defer func() {
+		_ = dbForMigrations.Close()
+	}()
 
 	mig := migrator.NewMigrator(dbForMigrations, cfg.MigrationsDir())
 	if err := mig.Up(); err != nil {
@@ -91,7 +92,6 @@ func (d *diContainer) RunMigrations(ctx context.Context) {
 }
 
 func (d *diContainer) OrderRepository(ctx context.Context) repository.OrderRepository {
-
 	if d.orderRepo == nil {
 		d.orderRepo = repo.NewRepository(d.PostgresConn(ctx))
 	}
@@ -99,6 +99,7 @@ func (d *diContainer) OrderRepository(ctx context.Context) repository.OrderRepos
 
 	return d.orderRepo
 }
+
 func (d *diContainer) InventoryClient(ctx context.Context) cl.InventoryClient {
 	if d.inventoryClient == nil {
 		cfg := config.AppConfig().InvGRPC
@@ -123,6 +124,7 @@ func (d *diContainer) InventoryClient(ctx context.Context) cl.InventoryClient {
 	}
 	return d.inventoryClient
 }
+
 func (d *diContainer) PaymentClient(ctx context.Context) cl.PaymentClient {
 	if d.paymentClient == nil {
 		cfg := config.AppConfig().PayGRPC
@@ -153,6 +155,7 @@ func (d *diContainer) OrderProducerService() service.OrderProducerService {
 	}
 	return d.orderProducerService
 }
+
 func (d *diContainer) OrderConsumerService(ctx context.Context) service.ConsumerService {
 	if d.orderConsumerService == nil {
 		d.orderConsumerService = orderConsumer.NewService(
@@ -163,6 +166,7 @@ func (d *diContainer) OrderConsumerService(ctx context.Context) service.Consumer
 	}
 	return d.orderConsumerService
 }
+
 func (d *diContainer) OrderPaidProducer() wrappedKafka.Producer {
 	if d.orderPaidProducer == nil {
 		d.orderPaidProducer = wrappedKafkaProducer.NewProducer(

@@ -1,16 +1,16 @@
 package payment
 
 import (
+	"context"
+	"fmt"
+
 	"github.com/Ilia9531/microservices-warehouse/order/internal/converter"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
-	"context"
-	"fmt"
 )
 
-func (c *grpcClient) PayOrderCl(ctx context.Context, orderUUID, userUUID string, paymentMethod string) (string, error) {
+func (c *grpcClient) PayOrderCl(ctx context.Context, orderUUID, userUUID, paymentMethod string) (string, error) {
 	protoPaymentMethod, err := converter.StrToMethod(paymentMethod)
-
 	if err != nil {
 		return "", fmt.Errorf("paymentMethod is invalid: %w", model.ErrValidation)
 	}

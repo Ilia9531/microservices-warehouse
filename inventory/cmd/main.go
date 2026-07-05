@@ -1,19 +1,18 @@
 package main
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
-	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	"context"
 	"fmt"
 	"os/signal"
 	"syscall"
 	"time"
 
-	"context"
-
 	"go.uber.org/zap"
 
 	"github.com/Ilia9531/microservices-warehouse/inventory/internal/app"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 // если запуск локально: deploy/compose/inventory/
@@ -24,13 +23,11 @@ func main() {
 	ctx := context.Background()
 
 	err := config.Load(configPath)
-
 	if err != nil {
 		fmt.Printf("🔍 godotenv error type: %T\n", err)
 		fmt.Printf("🔍 godotenv error msg: %v\n", err)
 
-		panic(fmt.Errorf("failed to load .env file: %v\n", err))
-		return
+		panic(fmt.Errorf("failed to load .env file: %w", err))
 	}
 	appCtx, appCancel := signal.NotifyContext(ctx, syscall.SIGINT, syscall.SIGTERM)
 	defer appCancel()
@@ -44,13 +41,12 @@ func main() {
 		return
 	}
 	err = a.Run(appCtx)
-
 	if err != nil {
 		logger.Error(appCtx, "❌ Ошибка при работе приложения", zap.Error(err))
 		return
 	}
-
 }
+
 func gracefulShutdown() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()

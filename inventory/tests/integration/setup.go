@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/testcontainers/testcontainers-go/wait"
-
 	"go.uber.org/zap"
 
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
@@ -74,7 +73,7 @@ func setupTestEnvironment(ctx context.Context) *TestEnvironment {
 
 	// Создаём настраиваемую стратегию ожидания с увеличенным таймаутом
 	// Ждём, пока порт 50051 станет доступен для gRPC-соединений
-	//waitStrategy := wait.ForListeningPort(grpcPort + "/tcp").
+	// waitStrategy := wait.ForListeningPort(grpcPort + "/tcp").
 	//	WithStartupTimeout(startupTimeoutValue)
 	waitStrategy := wait.ForLog("🚀 gRPC InventoryService server listening on").WithStartupTimeout(110 * time.Second)
 

@@ -13,7 +13,7 @@ type PartsFilter struct {
 }
 
 type Part struct {
-	//ID            primitive.ObjectID   `bson:"_id,omitempty"`
+	// ID            primitive.ObjectID   `bson:"_id,omitempty"`
 	Uuid          string               `bson:"uuid"`
 	Name          string               `bson:"name"`
 	Description   string               `bson:"description"`

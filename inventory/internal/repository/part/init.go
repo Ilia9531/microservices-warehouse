@@ -1,11 +1,12 @@
 package part
 
 import (
-	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 	"fmt"
 	"time"
 
 	"github.com/google/uuid"
+
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 )
 
 func initParts() []interface{} {
@@ -32,7 +33,8 @@ func initParts() []interface{} {
 		Tags: []string{"Крыло", "дракон", "нефритовый стержень"},
 		Metadata: map[string]repoModel.MetaValue{
 			"Versia:": {
-				StringValue: &stringPtr},
+				StringValue: &stringPtr,
+			},
 		},
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
@@ -60,7 +62,8 @@ func initParts() []interface{} {
 		Tags: []string{"Мечта герметизатора"},
 		Metadata: map[string]repoModel.MetaValue{
 			"Версия бака": {
-				StringValue: &stringPtr2},
+				StringValue: &stringPtr2,
+			},
 		},
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
@@ -88,7 +91,8 @@ func initParts() []interface{} {
 		Tags: []string{"дорого/богато"},
 		Metadata: map[string]repoModel.MetaValue{
 			"Версия двигателя": {
-				StringValue: &stringPtr3},
+				StringValue: &stringPtr3,
+			},
 		},
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),

@@ -4,12 +4,12 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
-
 	"github.com/google/uuid"
+
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
 )
 
-func (s *Service) PayOrder(_ context.Context, orderUUID, userUUID string, paymentMethod string) (string, error) {
+func (s *Service) PayOrder(_ context.Context, orderUUID, userUUID, paymentMethod string) (string, error) {
 	if orderUUID == "" {
 		return "", model.ErrInvalidOrderUUID
 	}
@@ -27,6 +27,6 @@ func (s *Service) PayOrder(_ context.Context, orderUUID, userUUID string, paymen
 		"transaction_uuid", transUuid,
 	)
 
-	slog.Info("Оплата прошла успешно, transaction_uuid: %s", transUuid)
+	slog.Info("Оплата прошла успешно", "transaction_uuid", transUuid)
 	return transUuid, nil
 }

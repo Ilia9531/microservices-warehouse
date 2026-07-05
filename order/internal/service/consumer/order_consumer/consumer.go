@@ -20,7 +20,8 @@ type service struct {
 
 // NewService создаёт новый экземпляр сервиса консьюмера.
 func NewService(consumer kafka.Consumer, decoder kafkaConverter.ShipAssembledDecoder,
-	orderRepo repo.OrderRepository) *service {
+	orderRepo repo.OrderRepository,
+) *service {
 	return &service{
 		consumer:             consumer,
 		shipAssembledDecoder: decoder,

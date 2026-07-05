@@ -1,10 +1,11 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	"context"
 	"fmt"
 	"time"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 func (s *Service) CancelOrder(ctx context.Context, uuid string) error {

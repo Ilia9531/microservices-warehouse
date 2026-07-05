@@ -6,6 +6,7 @@ import (
 	//"github.com/docker/go-connections/nat"
 	"github.com/docker/docker/api/types/container"
 	"go.uber.org/zap"
+
 	//"github.com/moby/moby/api/types/network"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
@@ -51,6 +52,5 @@ func buildConfig(opts ...Option) *Config {
 func defaultHostConfig() func(hc *container.HostConfig) {
 	return func(hc *container.HostConfig) {
 		hc.AutoRemove = false
-
 	}
 }

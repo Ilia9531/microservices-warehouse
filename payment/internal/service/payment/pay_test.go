@@ -1,9 +1,9 @@
 package payment_test
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
-
 	"github.com/google/uuid"
+
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
 )
 
 // TestPayOrder_Success тест на успешную оплату.

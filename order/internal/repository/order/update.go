@@ -1,10 +1,11 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
 	"context"
 	"fmt"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
 )
 
 func (r *Repository) Update(ctx context.Context, orderM *model.Order) error {
@@ -13,8 +14,8 @@ func (r *Repository) Update(ctx context.Context, orderM *model.Order) error {
 	}
 	RepoOrder := converter.ToRepo(orderM)
 
-	//Здесь надо по хорошему for update использовать
-	//внутри транзакции
+	// Здесь надо по хорошему for update использовать
+	// внутри транзакции
 	qyery := `UPDATE orders
 	SET transaction_uuid = $1,
 	    payment_method = $2,

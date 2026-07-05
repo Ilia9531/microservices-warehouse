@@ -1,9 +1,6 @@
 package part
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
-	repoConverter "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/converter"
-	RepoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 	"context"
 	"errors"
 	"fmt"
@@ -11,6 +8,10 @@ import (
 	gUuid "github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
+
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	repoConverter "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/converter"
+	RepoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 )
 
 func (r *repository) Get(ctx context.Context, uuid string) (*model.Part, error) {
@@ -29,7 +30,6 @@ func (r *repository) Get(ctx context.Context, uuid string) (*model.Part, error) 
 
 	// FindOne возвращает курсор на один документ. Decode распаковывает BSON в Go-структуру.
 	err = r.collection.FindOne(ctx, filter).Decode(&dbPart)
-
 	if err != nil {
 		// MongoDB возвращает mongo.ErrNoDocuments, если документ не найден
 		fmt.Printf("Я get из репо, получена ошибка: %v, вот ее тип: %T\n", err, err)

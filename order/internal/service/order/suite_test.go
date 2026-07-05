@@ -1,9 +1,8 @@
 package order_test
 
 import (
-	"testing"
-
 	"context"
+	"testing"
 
 	"github.com/stretchr/testify/suite"
 

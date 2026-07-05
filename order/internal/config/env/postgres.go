@@ -54,7 +54,7 @@ func NewPostgresConfig() (*postgresConfig, error) {
 }
 
 func (cfg *postgresConfig) DSN() string {
-	//ORDER_POSTGRES_DSN=postgres://order-service-user:order-service-password@postgres:5432/order-service
+	// ORDER_POSTGRES_DSN=postgres://order-service-user:order-service-password@postgres:5432/order-service
 	return fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=%s",
 		cfg.raw.User,
 		cfg.raw.Password,
@@ -64,6 +64,7 @@ func (cfg *postgresConfig) DSN() string {
 		cfg.raw.SSLMode,
 	)
 }
+
 func (cfg *postgresConfig) MigrationsDir() string {
 	return cfg.raw.MigrationsDir
 }

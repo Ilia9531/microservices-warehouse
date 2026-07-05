@@ -1,9 +1,10 @@
 package payment
 
 import (
+	"google.golang.org/grpc"
+
 	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
 	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
-	"google.golang.org/grpc"
 )
 
 type grpcClient struct {

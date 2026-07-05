@@ -1,9 +1,10 @@
 package part
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 	"context"
 	"fmt"
+
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 )
 
 func (s *Service) GetPart(ctx context.Context, uuid string) (*model.Part, error) {

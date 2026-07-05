@@ -186,6 +186,7 @@ func (a *App) runHTTPServer(ctx context.Context) error {
 
 	return nil
 }
+
 func (a *App) runConsumer(ctx context.Context) error {
 	logger.Info(ctx, "🚀 UFORecorded Kafka consumer running")
 

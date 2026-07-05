@@ -5,11 +5,12 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/jackc/pgx/v5/pgconn"
+	"go.uber.org/zap"
+
 	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
-	"github.com/jackc/pgx/v5/pgconn"
-	"go.uber.org/zap"
 )
 
 func (r *Repository) Create(ctx context.Context, orderM *model.Order) error {
@@ -33,7 +34,6 @@ func (r *Repository) Create(ctx context.Context, orderM *model.Order) error {
 		dbOrder.CreatedAt,
 		dbOrder.UpdatedAt,
 	)
-
 	if err != nil {
 		var pgErr *pgconn.PgError
 		if errors.As(err, &pgErr) {

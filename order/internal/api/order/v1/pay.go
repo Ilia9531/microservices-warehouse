@@ -1,14 +1,16 @@
 package v1
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/converter"
-	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 	"context"
 	"log"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/converter"
+	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 )
 
 func (a *Api) APIV1OrdersOrderUUIDPayPost(ctx context.Context, req *orderv1.PayOrderRequest,
-	params orderv1.APIV1OrdersOrderUUIDPayPostParams) (orderv1.APIV1OrdersOrderUUIDPayPostRes, error) {
+	params orderv1.APIV1OrdersOrderUUIDPayPostParams,
+) (orderv1.APIV1OrdersOrderUUIDPayPostRes, error) {
 	if params.OrderUUID == "" || req.PaymentMethod == "" {
 		log.Printf("Ошибка при проверке OrderUUID и PaymentMethod")
 		return &orderv1.Error{

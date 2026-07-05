@@ -1,10 +1,10 @@
 package order_test
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 // TestCreateOrder_Success тест на успешное создание заказа.

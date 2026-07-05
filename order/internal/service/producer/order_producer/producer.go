@@ -44,7 +44,7 @@ func (p *service) ProduceOrderPaid(ctx context.Context, event model.OrderPaidEve
 		logger.Error(ctx, "failed to publish OrderPaid", zap.Error(err))
 		return err
 	}
-	//для ниже логер для отладки
+	// для ниже логер для отладки
 	logger.Info(ctx, "OrderPaid event published",
 		zap.String("event_uuid", event.EventUUID),
 		zap.String("order_uuid", event.OrderUUID),

@@ -4,12 +4,11 @@ import (
 	"context"
 	"time"
 
-	mytestcontainers "github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers"
-
 	"github.com/testcontainers/testcontainers-go"
-
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
+
+	mytestcontainers "github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers"
 )
 
 const (
@@ -50,8 +49,8 @@ func NewContainer(ctx context.Context, opts ...Option) (*Container, error) {
 			zap.String("internal_port", mongoPort),
 		)
 		return nil, err
-		//cfg.Host = cfg.ContainerName // Имя контейнера резолвится внутри Docker-сети как DNS-хост
-		//cfg.Port = mongoPort
+		// cfg.Host = cfg.ContainerName // Имя контейнера резолвится внутри Docker-сети как DNS-хост
+		// cfg.Port = mongoPort
 	}
 
 	uri := buildMongoURI(cfg)

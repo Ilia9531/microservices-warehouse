@@ -1,15 +1,15 @@
 package order
 
 import (
-	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 	"context"
 	"fmt"
+
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 func (s *Service) GetOrder(ctx context.Context, uuid string) (*model.Order, error) {
 	if uuid == "" {
 		return nil, fmt.Errorf("uuid is required: %w", model.ErrValidation)
-
 	}
 	order, err := s.repo.Get(ctx, uuid)
 	if err != nil {

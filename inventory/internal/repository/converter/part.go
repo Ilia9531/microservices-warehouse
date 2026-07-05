@@ -20,10 +20,9 @@ func PartToDomain(p *repoModel.Part) *model.Part {
 		CreatedAt:     p.CreatedAt,
 		UpdatedAt:     p.UpdatedAt,
 	}
-
 }
-func PartToRepo(p *model.Part) *repoModel.Part {
 
+func PartToRepo(p *model.Part) *repoModel.Part {
 	return &repoModel.Part{
 		Uuid:          p.Uuid,
 		Name:          p.Name,
@@ -47,7 +46,6 @@ func CategoryToDomain(c repoModel.Category) model.Category {
 
 // FilterToDomain конвертирует repo-фильтр в domain-фильтр
 func FilterToDomain(p *repoModel.PartsFilter) *model.PartsFilter {
-
 	// Конвертируем каждый элемент слайса Category
 	categories := make([]model.Category, 0, len(p.Category))
 	for _, c := range p.Category {
@@ -70,7 +68,6 @@ func CategoryToRepo(c model.Category) repoModel.Category {
 
 // FilterToRepo конвертирует domain-фильтр в repo-фильтр
 func FilterToRepo(p *model.PartsFilter) *repoModel.PartsFilter {
-
 	categories := make([]repoModel.Category, 0, len(p.Category))
 	for _, c := range p.Category {
 		categories = append(categories, CategoryToRepo(c))
