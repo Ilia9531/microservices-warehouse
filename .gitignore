@@ -8,6 +8,7 @@ go.work.sum
 
 Taskfile_*
 Команды_для_этого_говна.txt
+notification
 
 # Переменные окружения (содержат пароли!)
 .env
