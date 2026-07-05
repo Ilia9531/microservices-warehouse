@@ -7,11 +7,11 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	clmocks "Jopa/order/internal/client/grpc/mocks"
-	"Jopa/order/internal/model"
-	repomocks "Jopa/order/internal/repository/mocks"
-	servmocks "Jopa/order/internal/service/mocks"
-	"Jopa/order/internal/service/order"
+	clmocks "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc/mocks"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	repomocks "github.com/Ilia9531/microservices-warehouse/order/internal/repository/mocks"
+	servmocks "github.com/Ilia9531/microservices-warehouse/order/internal/service/mocks"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/service/order"
 )
 
 // OrderServiceTestSuite - тестовый набор для OrderService.

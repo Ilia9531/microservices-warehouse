@@ -1,9 +1,9 @@
 package order
 
 import (
-	cl "Jopa/order/internal/client/grpc"
-	"Jopa/order/internal/repository"
-	"Jopa/order/internal/service"
+	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/repository"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/service"
 )
 
 var _ service.OrderService = (*Service)(nil)

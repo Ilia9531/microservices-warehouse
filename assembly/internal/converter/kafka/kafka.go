@@ -1,6 +1,6 @@
 package kafka
 
-import "Jopa/assembly/internal/model"
+import "github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
 
 type OrderPaidDecoder interface {
 	Decode(payload []byte) (model.OrderPaidEvent, error)

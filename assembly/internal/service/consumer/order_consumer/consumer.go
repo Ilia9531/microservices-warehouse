@@ -1,14 +1,14 @@
 package order_consumer
 
 import (
-	serviceKafka "Jopa/assembly/internal/service"
+	serviceKafka "github.com/Ilia9531/microservices-warehouse/assembly/internal/service"
 	"context"
 
 	"go.uber.org/zap"
 
-	kafakDec "Jopa/assembly/internal/converter/kafka"
-	"Jopa/platform/pkg/kafka"
-	"Jopa/platform/pkg/logger"
+	kafakDec "github.com/Ilia9531/microservices-warehouse/assembly/internal/converter/kafka"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 // service реализует интерфейс ConsumerService для обработки входящих событий OrderPaid.

@@ -1,7 +1,7 @@
 package payment_test
 
 import (
-	"Jopa/payment/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
 
 	"github.com/google/uuid"
 )

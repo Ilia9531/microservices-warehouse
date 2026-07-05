@@ -7,9 +7,9 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
-	"Jopa/assembly/internal/config"
-	"Jopa/platform/pkg/closer"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 // App — основной тип приложения AssemblyService.

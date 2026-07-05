@@ -1,7 +1,7 @@
 package v1
 
 import (
-	"Jopa/order/internal/service"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/service"
 )
 
 type Api struct {

@@ -3,7 +3,7 @@ package part_test
 import (
 	"github.com/stretchr/testify/assert"
 	
-	"Jopa/inventory/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 )
 
 func (s *PartServiceTestSuite) TestGetPart_Success() {

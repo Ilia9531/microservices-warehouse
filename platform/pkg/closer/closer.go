@@ -11,7 +11,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 // shutdownTimeout по умолчанию, можно сделать параметром

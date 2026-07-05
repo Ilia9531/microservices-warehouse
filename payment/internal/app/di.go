@@ -3,13 +3,13 @@
 package app
 
 import (
-	api "Jopa/payment/internal/api/payment/v1"
+	api "github.com/Ilia9531/microservices-warehouse/payment/internal/api/payment/v1"
 	"context"
 
-	"Jopa/payment/internal/service"
-	paymentSvc "Jopa/payment/internal/service/payment"
-	"Jopa/platform/pkg/logger"
-	payV1 "Jopa/shared/pkg/proto/payment/v1"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/service"
+	paymentSvc "github.com/Ilia9531/microservices-warehouse/payment/internal/service/payment"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	payV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 )
 
 // diContainer — контейнер зависимостей для Payment-сервиса.

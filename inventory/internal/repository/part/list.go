@@ -1,9 +1,9 @@
 package part
 
 import (
-	"Jopa/inventory/internal/model"
-	repoConverter "Jopa/inventory/internal/repository/converter"
-	repoModel "Jopa/inventory/internal/repository/model"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	repoConverter "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/converter"
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 	"context"
 
 	"go.mongodb.org/mongo-driver/bson"

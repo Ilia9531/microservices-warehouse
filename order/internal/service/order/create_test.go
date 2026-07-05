@@ -1,7 +1,7 @@
 package order_test
 
 import (
-	"Jopa/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

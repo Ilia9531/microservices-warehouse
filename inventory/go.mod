@@ -1,4 +1,4 @@
-module Jopa/inventory
+module github.com/Ilia9531/microservices-warehouse/inventory
 
 go 1.25.7
 

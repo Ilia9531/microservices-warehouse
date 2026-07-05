@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"Jopa/order/internal/model"
-	orderv1 "Jopa/shared/pkg/openapi/order/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 	"context"
 	"errors"
 )

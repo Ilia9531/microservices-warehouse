@@ -12,11 +12,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/reflection"
 
-	"Jopa/payment/internal/config"
-	"Jopa/platform/pkg/closer"
-	"Jopa/platform/pkg/grpc/health"
-	"Jopa/platform/pkg/logger"
-	payV1 "Jopa/shared/pkg/proto/payment/v1"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/grpc/health"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	payV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 )
 
 // App — основной тип приложения.

@@ -4,19 +4,19 @@ import (
 	"context"
 	"fmt"
 
-	"Jopa/inventory/internal/config"
-	"Jopa/inventory/internal/service"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/service"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 
-	invV1API "Jopa/inventory/internal/api/inventory/v1"
-	"Jopa/inventory/internal/repository"
-	invRep "Jopa/inventory/internal/repository/part"
-	PartServ "Jopa/inventory/internal/service/part"
-	"Jopa/platform/pkg/closer"
-	invV1 "Jopa/shared/pkg/proto/inventory/v1"
+	invV1API "github.com/Ilia9531/microservices-warehouse/inventory/internal/api/inventory/v1"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/repository"
+	invRep "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/part"
+	PartServ "github.com/Ilia9531/microservices-warehouse/inventory/internal/service/part"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
 const partsCollectionName = "parts"

@@ -3,7 +3,7 @@ package order_test
 import (
 	"context"
 
-	"Jopa/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 // TestGetOrder_Success тест на успешное получение заказа.

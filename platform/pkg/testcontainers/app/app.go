@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 
 	"github.com/docker/go-connections/nat"
 

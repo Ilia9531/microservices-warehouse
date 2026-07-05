@@ -4,7 +4,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"Jopa/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
 )
 
 // TestPayOrder_Success тест на успешную оплату.

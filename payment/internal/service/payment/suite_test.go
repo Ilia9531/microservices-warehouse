@@ -1,7 +1,7 @@
 package payment_test
 
 import (
-	"Jopa/payment/internal/service/payment"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/service/payment"
 	"context"
 	"testing"
 

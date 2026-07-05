@@ -1,8 +1,8 @@
 package converter
 
 import (
-	"Jopa/order/internal/model"
-	inventoryv1 "Jopa/shared/pkg/proto/inventory/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	inventoryv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
 func ToDomainPart(protoPart *inventoryv1.Part) *model.Part{

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"Jopa/payment/internal/app"
-	"Jopa/payment/internal/config"
-	"Jopa/platform/pkg/closer"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/app"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"context"
 	"time"
 

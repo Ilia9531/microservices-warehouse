@@ -1,8 +1,8 @@
 package converter
 
 import (
-	"Jopa/inventory/internal/model"
-	repoModel "Jopa/inventory/internal/repository/model"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 )
 
 func PartToDomain(p *repoModel.Part) *model.Part {

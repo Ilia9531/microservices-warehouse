@@ -3,11 +3,11 @@
 package integration
 
 import (
-	repoModel "Jopa/inventory/internal/repository/model"
-	"Jopa/platform/pkg/testcontainers/app"
-	"Jopa/platform/pkg/testcontainers/mongo"
-	"Jopa/platform/pkg/testcontainers/network"
-	invV1 "Jopa/shared/pkg/proto/inventory/v1"
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/app"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/mongo"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/network"
+	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 	"context"
 	"fmt"
 	"os"

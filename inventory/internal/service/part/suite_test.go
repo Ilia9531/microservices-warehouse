@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"Jopa/inventory/internal/model"
-	"Jopa/inventory/internal/repository/mocks"
-	"Jopa/inventory/internal/service/part"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/mocks"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/service/part"
 )
 
 type PartServiceTestSuite struct {

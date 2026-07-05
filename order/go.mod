@@ -1,4 +1,4 @@
-module Jopa/order
+module github.com/Ilia9531/microservices-warehouse/order
 
 go 1.25.7
 

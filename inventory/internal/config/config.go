@@ -5,7 +5,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"Jopa/inventory/internal/config/env"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config/env"
 )
 
 // appConfig — глобальный синглтон конфигурации.

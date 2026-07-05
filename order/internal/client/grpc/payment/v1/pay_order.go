@@ -1,9 +1,9 @@
 package payment
 
 import (
-	"Jopa/order/internal/converter"
-	"Jopa/order/internal/model"
-	paymentv1 "Jopa/shared/pkg/proto/payment/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/converter"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 	"context"
 	"fmt"
 )

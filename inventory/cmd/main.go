@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Jopa/inventory/internal/config"
-	"Jopa/platform/pkg/closer"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"fmt"
 	"os/signal"
 	"syscall"
@@ -13,7 +13,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/inventory/internal/app"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/app"
 )
 
 // если запуск локально: deploy/compose/inventory/

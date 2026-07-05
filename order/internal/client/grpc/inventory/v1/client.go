@@ -1,9 +1,9 @@
 package inventory
 
 import (
-	inventoryv1 "Jopa/shared/pkg/proto/inventory/v1"
+	inventoryv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 
-	cl "Jopa/order/internal/client/grpc"
+	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
 
 	"google.golang.org/grpc"
 )

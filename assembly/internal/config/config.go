@@ -5,7 +5,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"Jopa/assembly/internal/config/env"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/config/env"
 )
 
 var appConfig *config

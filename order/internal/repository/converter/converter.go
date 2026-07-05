@@ -1,8 +1,8 @@
 package converter
 
 import (
-	"Jopa/order/internal/model"
-	repoModel "Jopa/order/internal/repository/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	repoModel "github.com/Ilia9531/microservices-warehouse/order/internal/repository/model"
 )
 
 func ToRepo(order *model.Order) *repoModel.Order {

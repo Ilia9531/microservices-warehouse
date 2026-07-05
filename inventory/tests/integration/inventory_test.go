@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	invV1 "Jopa/shared/pkg/proto/inventory/v1"
+	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
 var _ = Describe("InventoryService", func() {

@@ -1,8 +1,8 @@
 package payment
 
 import (
-	cl "Jopa/order/internal/client/grpc"
-	paymentv1 "Jopa/shared/pkg/proto/payment/v1"
+	cl "github.com/Ilia9531/microservices-warehouse/order/internal/client/grpc"
+	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 	"google.golang.org/grpc"
 )
 

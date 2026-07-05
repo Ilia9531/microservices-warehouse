@@ -1,10 +1,10 @@
 package v1
 
 import (
-	"Jopa/inventory/internal/converter"
-	"Jopa/inventory/internal/model"
-	"Jopa/platform/pkg/logger"
-	inventoryV1 "Jopa/shared/pkg/proto/inventory/v1"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/converter"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	inventoryV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 	"context"
 	"errors"
 

@@ -3,7 +3,7 @@ package kafka
 import (
 	"context"
 
-	"Jopa/platform/pkg/kafka/consumer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
 )
 
 type Consumer interface {

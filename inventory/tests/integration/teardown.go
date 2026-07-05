@@ -7,7 +7,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 // teardownTestEnvironment — освобождает все ресурсы тестового окружения

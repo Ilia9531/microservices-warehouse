@@ -6,9 +6,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/order/internal/model"
-	kafka "Jopa/platform/pkg/kafka/consumer"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	kafka "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"errors"
 )
 

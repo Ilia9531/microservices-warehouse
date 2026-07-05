@@ -11,12 +11,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/platform/pkg/logger"
-	"Jopa/platform/pkg/testcontainers"
-	"Jopa/platform/pkg/testcontainers/app"
-	"Jopa/platform/pkg/testcontainers/mongo"
-	"Jopa/platform/pkg/testcontainers/network"
-	"Jopa/platform/pkg/testcontainers/path"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/app"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/mongo"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/network"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers/path"
 )
 
 // setupTestEnvironment подготавливает тестовое окружение: сеть, контейнеры и возвращает структуру с ресурсами

@@ -6,10 +6,10 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/proto"
 
-	"Jopa/assembly/internal/model"
-	"Jopa/platform/pkg/kafka"
-	"Jopa/platform/pkg/logger"
-	eventsv1 "Jopa/shared/pkg/proto/events/v1"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	eventsv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1"
 )
 
 type service struct {

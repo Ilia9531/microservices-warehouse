@@ -5,7 +5,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"Jopa/order/internal/config/env"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/config/env"
 )
 
 var appConfig *config

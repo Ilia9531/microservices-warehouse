@@ -1,9 +1,9 @@
 package part
 
 import (
-	"Jopa/inventory/internal/model"
-	repoConverter "Jopa/inventory/internal/repository/converter"
-	RepoModel "Jopa/inventory/internal/repository/model"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	repoConverter "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/converter"
+	RepoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 	"context"
 	"errors"
 	"fmt"

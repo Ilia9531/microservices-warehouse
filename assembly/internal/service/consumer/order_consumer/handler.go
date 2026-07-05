@@ -7,9 +7,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/assembly/internal/model"
-	kafka "Jopa/platform/pkg/kafka/consumer"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
+	kafka "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 func (s *service) OrderPaidHandler(ctx context.Context, msg kafka.Message) error {

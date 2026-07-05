@@ -1,8 +1,8 @@
 package order
 
 import (
-	"Jopa/order/internal/model"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	"context"
 	"fmt"
 

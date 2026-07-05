@@ -1,7 +1,7 @@
 package part
 
 import (
-	def "Jopa/inventory/internal/repository"
+	def "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository"
 	"context"
 	"log"
 	"time"

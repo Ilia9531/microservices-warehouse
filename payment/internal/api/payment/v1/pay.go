@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"Jopa/payment/internal/model"
-	paymentV1 "Jopa/shared/pkg/proto/payment/v1"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
+	paymentV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 	"context"
 
 	"errors"

@@ -10,11 +10,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/reflection"
 
-	"Jopa/inventory/internal/config"
-	"Jopa/platform/pkg/closer"
-	"Jopa/platform/pkg/grpc/health"
-	"Jopa/platform/pkg/logger"
-	invV1 "Jopa/shared/pkg/proto/inventory/v1"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/grpc/health"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
 // App — основной тип приложения, агрегирующий gRPC-сервер, listener и DI-контейнер.

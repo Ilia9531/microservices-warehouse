@@ -1,9 +1,9 @@
 package converter
 
 import (
-	"Jopa/order/internal/model"
-	orderv1 "Jopa/shared/pkg/openapi/order/v1"
-	paymentv1 "Jopa/shared/pkg/proto/payment/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
+	paymentv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/payment/v1"
 	"fmt"
 
 	"github.com/google/uuid"

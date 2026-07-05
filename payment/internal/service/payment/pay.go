@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 
-	"Jopa/payment/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/payment/internal/model"
 
 	"github.com/google/uuid"
 )

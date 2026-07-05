@@ -1,8 +1,8 @@
 package decoder
 
 import (
-	"Jopa/assembly/internal/model"
-	eventsv1 "Jopa/shared/pkg/proto/events/v1"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
+	eventsv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1"
 	"fmt"
 
 	"google.golang.org/protobuf/proto"

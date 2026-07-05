@@ -1,8 +1,8 @@
 package converter
 
 import (
-	"Jopa/inventory/internal/model"
-	inventoryV1 "Jopa/shared/pkg/proto/inventory/v1"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
+	inventoryV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

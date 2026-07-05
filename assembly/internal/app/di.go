@@ -6,18 +6,18 @@ import (
 
 	"github.com/IBM/sarama"
 
-	"Jopa/assembly/internal/config"
-	kafkaConverter "Jopa/assembly/internal/converter/kafka"
-	"Jopa/assembly/internal/converter/kafka/decoder"
-	"Jopa/assembly/internal/service"
-	orderConsumer "Jopa/assembly/internal/service/consumer/order_consumer"
-	orderProducer "Jopa/assembly/internal/service/producer/order_producer"
-	"Jopa/platform/pkg/closer"
-	wrappedKafka "Jopa/platform/pkg/kafka"
-	wrappedKafkaConsumer "Jopa/platform/pkg/kafka/consumer"
-	wrappedKafkaProducer "Jopa/platform/pkg/kafka/producer"
-	"Jopa/platform/pkg/logger"
-	kafkaMiddleware "Jopa/platform/pkg/middleware/kafka"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/config"
+	kafkaConverter "github.com/Ilia9531/microservices-warehouse/assembly/internal/converter/kafka"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/converter/kafka/decoder"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/service"
+	orderConsumer "github.com/Ilia9531/microservices-warehouse/assembly/internal/service/consumer/order_consumer"
+	orderProducer "github.com/Ilia9531/microservices-warehouse/assembly/internal/service/producer/order_producer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	wrappedKafka "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
+	wrappedKafkaConsumer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
+	wrappedKafkaProducer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/producer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	kafkaMiddleware "github.com/Ilia9531/microservices-warehouse/platform/pkg/middleware/kafka"
 )
 
 type diContainer struct {

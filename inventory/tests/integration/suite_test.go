@@ -15,7 +15,7 @@ import (
 	. "github.com/onsi/gomega"
 	"go.uber.org/zap"
 
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 const testsTimeout = 14 * time.Minute

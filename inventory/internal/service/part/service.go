@@ -1,8 +1,8 @@
 package part
 
 import (
-	"Jopa/inventory/internal/repository"
-	def "Jopa/inventory/internal/service"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/repository"
+	def "github.com/Ilia9531/microservices-warehouse/inventory/internal/service"
 )
 
 var _ def.InventoryService = (*Service)(nil)

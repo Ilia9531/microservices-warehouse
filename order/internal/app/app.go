@@ -10,10 +10,10 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
-	"Jopa/order/internal/config"
-	"Jopa/platform/pkg/closer"
-	"Jopa/platform/pkg/logger"
-	orderv1 "Jopa/shared/pkg/openapi/order/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 )
 
 // App — основной тип приложения.

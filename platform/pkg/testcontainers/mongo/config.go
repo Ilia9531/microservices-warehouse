@@ -7,7 +7,7 @@ import (
 	"github.com/docker/docker/api/types/container"
 	"go.uber.org/zap"
 	//"github.com/moby/moby/api/types/network"
-	"Jopa/platform/pkg/logger"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 type Logger interface {

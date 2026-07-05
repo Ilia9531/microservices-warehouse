@@ -5,7 +5,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"Jopa/platform/pkg/kafka/consumer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/consumer"
 )
 
 type Logger interface {

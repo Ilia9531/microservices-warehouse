@@ -5,8 +5,8 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"Jopa/order/internal/model"
-	eventsv1 "Jopa/shared/pkg/proto/events/v1"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	eventsv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1"
 )
 
 type decoder struct{}

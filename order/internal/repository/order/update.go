@@ -1,8 +1,8 @@
 package order
 
 import (
-	"Jopa/order/internal/model"
-	"Jopa/order/internal/repository/converter"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/order/internal/repository/converter"
 	"context"
 	"fmt"
 )

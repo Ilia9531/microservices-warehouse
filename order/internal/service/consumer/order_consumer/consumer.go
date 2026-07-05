@@ -5,10 +5,10 @@ import (
 
 	"go.uber.org/zap"
 
-	kafkaConverter "Jopa/order/internal/converter/kafka"
-	repo "Jopa/order/internal/repository"
-	"Jopa/platform/pkg/kafka"
-	"Jopa/platform/pkg/logger"
+	kafkaConverter "github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka"
+	repo "github.com/Ilia9531/microservices-warehouse/order/internal/repository"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 )
 
 // Service реализует интерфейс обработки Kafka-событий для OrderService.

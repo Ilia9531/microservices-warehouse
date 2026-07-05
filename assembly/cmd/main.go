@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Jopa/assembly/internal/app"
-	"Jopa/assembly/internal/config"
-	"Jopa/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/app"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/config"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
 	"context"
 	"log"
 	"os/signal"

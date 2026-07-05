@@ -1,7 +1,7 @@
 package part
 
 import (
-	repoModel "Jopa/inventory/internal/repository/model"
+	repoModel "github.com/Ilia9531/microservices-warehouse/inventory/internal/repository/model"
 	"fmt"
 	"time"
 

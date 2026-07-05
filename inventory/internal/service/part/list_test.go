@@ -4,7 +4,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"Jopa/inventory/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/inventory/internal/model"
 )
 
 // TestListParts_Success тест на успешное получение списка деталей.

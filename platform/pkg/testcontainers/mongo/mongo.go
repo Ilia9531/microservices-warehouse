@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	mytestcontainers "Jopa/platform/pkg/testcontainers"
+	mytestcontainers "github.com/Ilia9531/microservices-warehouse/platform/pkg/testcontainers"
 
 	"github.com/testcontainers/testcontainers-go"
 

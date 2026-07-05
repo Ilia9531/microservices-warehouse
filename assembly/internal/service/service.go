@@ -1,7 +1,7 @@
 package service
 
 import (
-	"Jopa/assembly/internal/model"
+	"github.com/Ilia9531/microservices-warehouse/assembly/internal/model"
 	"context"
 )
 
