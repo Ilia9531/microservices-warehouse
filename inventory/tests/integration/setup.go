@@ -5,7 +5,6 @@ package integration
 import (
 	"context"
 	"os"
-	"time"
 
 	"github.com/testcontainers/testcontainers-go/wait"
 	"go.uber.org/zap"
@@ -75,7 +74,7 @@ func setupTestEnvironment(ctx context.Context) *TestEnvironment {
 	// Ждём, пока порт 50051 станет доступен для gRPC-соединений
 	// waitStrategy := wait.ForListeningPort(grpcPort + "/tcp").
 	//	WithStartupTimeout(startupTimeoutValue)
-	waitStrategy := wait.ForLog("🚀 gRPC InventoryService server listening on").WithStartupTimeout(110 * time.Second)
+	waitStrategy := wait.ForLog("🚀 gRPC InventoryService server listening on").WithStartupTimeout(startupTimeoutValue)
 
 	log.Info(ctx, "📦 Собираем и запускаем Inventory контейнер...",
 		zap.String("dockerfile", inventoryDockerfile),

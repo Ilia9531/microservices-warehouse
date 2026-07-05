@@ -35,7 +35,7 @@ COPY assembly ./assembly
 #COPY deploy ./deploy
 
 # Скачиваем grpc-health-probe — это утилита для проверки состояния gRPC-сервиса
-#ADD https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.4.37/grpc_health_probe-linux-amd64 ./grpc-health-probe
+ADD https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.4.37/grpc_health_probe-linux-amd64 ./grpc-health-probe
 
 # Собираем бинарный файл Inventory-сервиса для Linux-архитектуры без CGO
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app-inventory ./inventory/cmd/main.go
@@ -61,7 +61,7 @@ USER appuser
 COPY --from=builder /app/app-inventory .
 
 # Копируем бинарь grpc-health-probe в /bin
-#COPY --from=builder /app/grpc-health-probe /bin/grpc-health-probe
+COPY --from=builder /app/grpc-health-probe /bin/grpc-health-probe
 
 COPY deploy/compose/inventory/.env .env
 
