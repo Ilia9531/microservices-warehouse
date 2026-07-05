@@ -25,6 +25,14 @@ func (s *OrderServiceTestSuite) TestPayOrder_Success() {
 		Return("transaction-uuid", nil).
 		Once()
 
+	// Добавляем ожидание вызова Kafka Producer!
+	s.producerService.EXPECT().
+		ProduceOrderPaid(mock.Anything, mock.MatchedBy(func(e model.OrderPaidEvent) bool {
+			return e.OrderUUID == order.OrderUUID && e.UserUUID == order.UserUUID
+		})).
+		Return(nil). // или whatever возвращает твой метод
+		Once()
+
 	// Обновление заказа
 	s.repo.EXPECT().
 		Update(mock.Anything, mock.MatchedBy(func(o *model.Order) bool {

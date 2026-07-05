@@ -38,9 +38,9 @@ func NewRepository(db *mongo.Database, name string) *repository {
 
 	repo := &repository{collection: collection}
 	//закоменить при e2e тестах:
-	//if err = repo.SeedIfEmpty(ctx); err != nil {
-	//	log.Printf("⚠️ failed to seed data: %v", err)
-	//}
+	if err = repo.SeedIfEmpty(ctx); err != nil {
+		log.Printf("⚠️ failed to seed data: %v", err)
+	}
 	return repo
 }
 
