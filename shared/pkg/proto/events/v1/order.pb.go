@@ -186,7 +186,7 @@ const file_events_v1_order_proto_rawDesc = "" +
 	"\n" +
 	"order_uuid\x18\x02 \x01(\tR\torderUuid\x12\x1b\n" +
 	"\tuser_uuid\x18\x03 \x01(\tR\buserUuid\x12$\n" +
-	"\x0ebuild_time_sec\x18\x04 \x01(\x03R\fbuildTimeSecB*Z(Jopa/shared/pkg/proto/events/v1;eventsv1b\x06proto3"
+	"\x0ebuild_time_sec\x18\x04 \x01(\x03R\fbuildTimeSecBQZOgithub.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1;eventsv1b\x06proto3"
 
 var (
 	file_events_v1_order_proto_rawDescOnce sync.Once

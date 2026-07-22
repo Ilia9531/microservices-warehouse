@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package auth.v1;
+
+option go_package = "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/auth/v1;authv1";
+
+// AuthService управляет пользователями и сессиями.
+// Авторизация в gRPC осуществляется через metadata ключ "session-uuid".
+service AuthService {
+  // Вход в систему (создание сессии)
+  rpc Login(LoginRequest) returns (LoginResponse);
+
+  // Получение информации о текущем пользователе по сессии
+  // session_uuid передаётся в gRPC metadata, а не в теле запроса
+  rpc Whoami(WhoamiRequest) returns (WhoamiResponse);
+
+
+}
+
+message LoginRequest {
+  string login = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string session_uuid = 1;
+}
+
+// Запрос пустой, так как session-uuid передаётся через gRPC metadata
+// Ключ metadata: "session-uuid"
+message WhoamiRequest {
+  string session_uuid = 1;
+}
+
+message WhoamiResponse {
+  string user_uuid = 1;
+  string login = 2;
+  string email = 3;
+}

@@ -18,6 +18,8 @@ func (s *Service) CreateOrder(ctx context.Context, userUUID string, partUUIDs []
 		return nil, fmt.Errorf("partUUIDs is empty: %w", model.ErrValidation)
 	}
 
+	fmt.Printf("вызываем ListPartsByUUIDs из Create Order\n")
+
 	parts, err := s.inventoryClient.ListPartsByUUIDs(ctx, partUUIDs)
 	if err != nil {
 		return nil, fmt.Errorf("failed to list parts: %w", err)

@@ -13,6 +13,7 @@ import (
 	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	httpAuth "github.com/Ilia9531/microservices-warehouse/platform/pkg/middleware/http"
 	orderv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/openapi/order/v1"
 )
 
@@ -150,11 +151,14 @@ func (a *App) initHTTPServer(ctx context.Context) error {
 	if err != nil {
 		return fmt.Errorf("failed to create openapi server: %w", err)
 	}
+	authMW := httpAuth.NewAuthMiddleware(a.diContainer.IamAuthClientRaw(ctx))
 
 	// Настраиваем роутер
 	r := chi.NewRouter()
-	r.Mount("/", apiServer)
-
+	r.Group(func(r chi.Router) {
+		r.Use(authMW.Handle)
+		r.Mount("/api/v1/orders", apiServer)
+	})
 	// Создаём HTTP сервер, привязывая его к нашему Listener'у
 	a.httpServer = &http.Server{
 		Handler:     r,

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/common/v1;commonv1";
+
+// Сессия для внутреннего использования (Redis) и межсервисного обмена
+message Session {
+  string uuid = 1;
+  string user_uuid = 2;
+}

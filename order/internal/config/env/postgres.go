@@ -6,30 +6,6 @@ import (
 	"github.com/caarlos0/env/v11"
 )
 
-//# Хост PostgreSQL-сервера (для внутренних подключений)
-//POSTGRES_HOST=localhost
-//
-//# Внутренний порт PostgreSQL
-//POSTGRES_PORT=5432
-//
-//# Внешний порт PostgreSQL (для подключения извне контейнера)
-//EXTERNAL_POSTGRES_PORT=5432
-//
-//# Имя пользователя для подключения к PostgreSQL
-//POSTGRES_USER=order_user
-//
-//# Пароль пользователя для подключения к PostgreSQL
-//POSTGRES_PASSWORD=order_password
-//
-//# Название базы данных
-//POSTGRES_DB=order
-//
-//# Режим подключения по SSL (например, disable, require)
-//POSTGRES_SSL_MODE=disable
-//
-//# Путь к директории с миграциями
-//MIGRATION_DIRECTORY=./order/migrations
-
 type postgresEnvConfig struct {
 	Host          string `env:"POSTGRES_HOST,required"`
 	Port          string `env:"POSTGRES_PORT,required"`

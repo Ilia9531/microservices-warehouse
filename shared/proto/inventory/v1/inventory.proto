@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package inventory.v1;
 
-option go_package = "Jopa/shared/pkg/proto/inventory/v1;inventory_v1";
+option go_package = "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1;inventory_v1";
 
 import "google/protobuf/timestamp.proto";
 

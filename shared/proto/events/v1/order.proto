@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package events.v1;
 
-option go_package = "Jopa/shared/pkg/proto/events/v1;eventsv1";
+option go_package = "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/events/v1;eventsv1";
 
 // Событие об оплате заказа (OrderService → AssemblyService, NotificationService)
 message OrderPaidEvent {

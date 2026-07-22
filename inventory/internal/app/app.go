@@ -14,6 +14,7 @@ import (
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/grpc/health"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	grpcAuth "github.com/Ilia9531/microservices-warehouse/platform/pkg/middleware/grpc"
 	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
@@ -97,7 +98,13 @@ func (a *App) initListener(_ context.Context) error {
 }
 
 func (a *App) initGRPCServer(ctx context.Context) error {
-	a.grpcServer = grpc.NewServer(grpc.Creds(insecure.NewCredentials()))
+	// Создаём интерцептор авторизации
+	authInterceptor := grpcAuth.NewAuthInterceptor(a.diContainer.IamAuthClient(ctx))
+
+	a.grpcServer = grpc.NewServer(
+		grpc.Creds(insecure.NewCredentials()),
+		grpc.UnaryInterceptor(authInterceptor.Unary()),
+	)
 
 	closer.AddNamed("gRPC server", func(ctx context.Context) error {
 		a.grpcServer.GracefulStop()

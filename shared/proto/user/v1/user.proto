@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package user.v1;
+
+option go_package = "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/user/v1;userv1";
+
+import "common/v1/user.proto";
+
+// UserService отвечает за жизненный цикл пользователя (PostgreSQL)
+service UserService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+
+message RegisterRequest {
+  string login = 1;
+  string password = 2;
+  string email = 3;
+  repeated common.v1.NotificationMethod notification_methods = 4;
+}
+
+message RegisterResponse {
+  string user_uuid = 1;
+}
+
+message GetUserRequest {
+  string user_uuid = 1;
+}
+
+message GetUserResponse {
+  common.v1.User user = 1;
+}

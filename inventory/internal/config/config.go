@@ -15,9 +15,10 @@ var appConfig *config
 // config — внутренняя структура конфигурации.
 // Поля экспортированы, так как реализуют интерфейсы, объявленные в interfaces.go.
 type config struct {
-	Logger LoggerConfig
-	GRPC   InventoryGRPCConfig
-	Mongo  MongoConfig
+	Logger  LoggerConfig
+	GRPC    InventoryGRPCConfig
+	Mongo   MongoConfig
+	IamGRPC IamGRPCConfig
 }
 
 // Load загружает переменные окружения из .env-файлов и инициализирует глобальную конфигурацию.
@@ -59,11 +60,17 @@ func Load(path ...string) error {
 		return err
 	}
 
+	iamCfg, err := env.NewIamGRPCConfig()
+	if err != nil {
+		return err
+	}
+
 	// Сохраняем в глобальную переменную
 	appConfig = &config{
-		Logger: loggerCfg,
-		GRPC:   grpcCfg,
-		Mongo:  mongoCfg,
+		Logger:  loggerCfg,
+		GRPC:    grpcCfg,
+		Mongo:   mongoCfg,
+		IamGRPC: iamCfg,
 	}
 
 	return nil

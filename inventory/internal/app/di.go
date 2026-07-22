@@ -7,6 +7,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 
 	invV1API "github.com/Ilia9531/microservices-warehouse/inventory/internal/api/inventory/v1"
 	"github.com/Ilia9531/microservices-warehouse/inventory/internal/config"
@@ -15,6 +17,8 @@ import (
 	"github.com/Ilia9531/microservices-warehouse/inventory/internal/service"
 	PartServ "github.com/Ilia9531/microservices-warehouse/inventory/internal/service/part"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/closer"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
+	authv1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/auth/v1"
 	invV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/inventory/v1"
 )
 
@@ -25,12 +29,39 @@ type diContainer struct {
 	invService    service.InventoryService
 	invRepository repository.InventoryRepository
 
+	iamAuthClient authv1.AuthServiceClient
+
 	mongoDBClient *mongo.Client
 	mongoDBHandle *mongo.Database
 }
 
 func NewDiContainer() *diContainer {
 	return &diContainer{}
+}
+
+// IamAuthClient создаёт/возвращает gRPC-клиент к IAM для валидации сессий.
+func (d *diContainer) IamAuthClient(ctx context.Context) authv1.AuthServiceClient {
+	if d.iamAuthClient == nil {
+		cfg := config.AppConfig().IamGRPC
+
+		conn, err := grpc.NewClient(
+			cfg.Address(),
+			grpc.WithTransportCredentials(insecure.NewCredentials()),
+		)
+		if err != nil {
+			panic(fmt.Sprintf("failed to create IAM gRPC connection: %v", err))
+		}
+
+		d.iamAuthClient = authv1.NewAuthServiceClient(conn)
+
+		// Регистрируем закрытие соединения при остановке сервиса
+		closer.AddNamed("IAM gRPC client (Inventory)", func(ctx context.Context) error {
+			return conn.Close()
+		})
+
+		logger.Info(ctx, "✅ IAM gRPC client initialized for Inventory interceptor")
+	}
+	return d.iamAuthClient
 }
 
 func (d *diContainer) InvApiV1(ctx context.Context) invV1.InventoryServiceServer {

@@ -17,7 +17,6 @@ import (
 	"github.com/Ilia9531/microservices-warehouse/order/internal/config"
 	kafkaConverter "github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/converter/kafka/decoder"
-	"github.com/Ilia9531/microservices-warehouse/order/internal/migrator"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/repository"
 	repo "github.com/Ilia9531/microservices-warehouse/order/internal/repository/order"
 	"github.com/Ilia9531/microservices-warehouse/order/internal/service"
@@ -30,6 +29,8 @@ import (
 	wrappedKafkaProducer "github.com/Ilia9531/microservices-warehouse/platform/pkg/kafka/producer"
 	"github.com/Ilia9531/microservices-warehouse/platform/pkg/logger"
 	kafkaMiddleware "github.com/Ilia9531/microservices-warehouse/platform/pkg/middleware/kafka"
+	"github.com/Ilia9531/microservices-warehouse/platform/pkg/migrator"
+	authV1 "github.com/Ilia9531/microservices-warehouse/shared/pkg/proto/auth/v1"
 )
 
 type diContainer struct {
@@ -37,6 +38,8 @@ type diContainer struct {
 
 	inventoryClient cl.InventoryClient // gRPC-клиент к InventoryService
 	paymentClient   cl.PaymentClient   // gRPC-клиент к PaymentService
+
+	iamAuthClientRaw authV1.AuthServiceClient // gRPC-клиент к Iam для миддлваре
 
 	apiHandler   *api.Api                   // HTTP API handler (OpenAPI + chi)
 	orderService service.OrderService       // Бизнес-логика
@@ -55,6 +58,27 @@ type diContainer struct {
 
 func NewDiContainer() *diContainer {
 	return &diContainer{}
+}
+
+// Для middleware (возвращает сырой proto-клиент)
+func (d *diContainer) IamAuthClientRaw(ctx context.Context) authV1.AuthServiceClient {
+	if d.iamAuthClientRaw == nil {
+		cfg := config.AppConfig().IamGRPC
+
+		conn, err := grpc.NewClient(
+			cfg.Address(),
+			grpc.WithTransportCredentials(insecure.NewCredentials()),
+		)
+		if err != nil {
+			panic(fmt.Sprintf("failed to create IAM grpc connection: %v", err))
+		}
+		closer.AddNamed("IAM gRPC connection", func(ctx context.Context) error {
+			return conn.Close()
+		})
+		d.iamAuthClientRaw = authV1.NewAuthServiceClient(conn)
+		logger.Info(ctx, "✅ IamGRPC-клиент инициализирован")
+	}
+	return d.iamAuthClientRaw
 }
 
 func (d *diContainer) PostgresConn(ctx context.Context) *pgx.Conn {

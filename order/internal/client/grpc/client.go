@@ -13,3 +13,8 @@ type InventoryClient interface {
 type PaymentClient interface {
 	PayOrderCl(ctx context.Context, orderUUID, userUUID, paymentMethod string) (string, error)
 }
+
+//type IamClient interface {
+//	Whoami(ctx context.Context, sessionUUID string) (*model.Whoami, error)
+//	Login(ctx context.Context, login, password string) (string, error)
+//}
